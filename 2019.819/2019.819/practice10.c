@@ -69,33 +69,24 @@ int main()
 }
 #endif
 /* 3. 输出一个整数的每一位。*/
-#if 0
+void print(int n)
+{
+	if(n > 9)
+	{
+		print(n / 10);	
+	}	
+	printf("%d ",n%10);
+}
 int main()
 {
-	int input = 0, i = 0;
-	int arr[40] = {0};
+	int input = 0;
 	printf("请输入一个整数:>");
 	scanf("%d", &input);
-	for(i = 0; i < 32; i++)
-	{
-		if(((input>>i) & 1) == 1)
-		{
-			arr[i] = 1;
-		}
-		else
-		{
-			arr[i] = 0;
-		}
-	}
-
-	for(i = 31; i >= 0; i--)
-	{
-		printf("%d",arr[i]);
-	}
+	print(input);
 	printf("\n");
 	return 0;
 }
-#endif
+
 /*4.编程实现： 
 两个int（32位）整数m和n的二进制表达中，有多少个位(bit)不同？ 
 输入例子: 
