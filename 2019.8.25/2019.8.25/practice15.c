@@ -54,19 +54,15 @@ int main()
 #endif
 
 /* 3.模拟实现strcpy */
-#if 0
+#if 1
 #include <assert.h>
 char *strcpy(char * str1,const char * str2)
-{
-	assert(str2 != NULL);
-	while(*str2)
-	{
-		*str1 = *str2;
-		str1++;
-		str2++;	
-	}
-	*str1 = '\0';
-	return str1;
+{ 
+	char * p = str1;
+	assert(str1 && str2);
+	while(*str1++ = *str2++)
+	        ;
+	return p;
 }
 int main()
 {
@@ -79,19 +75,19 @@ int main()
 #endif
 
 /* 4.模拟实现strcat */
+#if 0
 #include<assert.h>
 char *strcat(char * str1,const char * str2)
 {
-	assert(str2 != NULL);
-	while(*str1++)
-	      ;
-	str1--;
-	while(*str2)
-	{
-		*str1++ = *str2++;
+	char * p = str1;
+	assert(str1 && str2);
+	while(*str1)
+	{   
+		str1++;
 	}
-	*str1 = '\0';
-	return str1;
+	while(*str1++ = *str2++)
+	         ;
+	return p;
 }
 int main()
 {
@@ -101,3 +97,4 @@ int main()
 	printf("%s\n",str1);
 	return 0;
 }
+#endif
