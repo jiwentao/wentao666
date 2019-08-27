@@ -158,13 +158,15 @@ int main()
 
 /* 6.实现memcpy */
 #if 0
-char * my_memcpy(char * des,const char * src,int n)
+void * my_memcpy(void * des,const void * src,size_t n)
 {
-	char * p = des;
+	void * p = des;
 	assert(des && src);
 	while(n--)
 	{
-        *des++ = *src++;
+        *(char *)des = *(char *)src;
+		++(char *)des;
+		++(char *)src;
 	}
 	return p;
 }
@@ -172,11 +174,47 @@ int main()
 {
 	char str[] = "gshgduuihfuguihub";
 	const char * p = "sdyupwt";
-	int n = 3;
+	/*int arr[10] = {1,2,3,4,5,6,7,8,9};
+	int arr1[10] = {8,8,8};*/
+	int n = 12;
 	my_memcpy(str,p,n);
-	printf("%s\n",str);
+	/*my_memcpy(arr,arr1,n);*/
+	printf("%s\n",arr);
 	return 0;
 }
 #endif
 
 /* 7.实现memmove */
+void * my_memmove(void * des,const void * src,size_t count)
+{
+	void * p = des;
+	assert(des && src);
+	if(des <= src)
+	{
+		while(count--)
+		{
+			*(char*)des = *(char*)src;
+			++(char*)des;
+			++(char*)src;
+		}
+	}
+	else
+	{
+		while(count--)
+		{
+			*((char*)des+count) = *((char*)src+count);
+		}
+	}
+	return p;
+}
+int main()
+{
+	int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+	int n = 16;
+	int i = 0;
+	my_memmove(arr+4,arr+2,n);
+	for(i = 0;i < 10;i++)
+		printf("%d ",arr[i]);
+	printf("\n");
+	return 0;
+}
