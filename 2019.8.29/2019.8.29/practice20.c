@@ -25,20 +25,22 @@ void test()
 			printf("退出程序\n");
 			break;
 		case ADD:
-			Add_con(&con);
+			Add_con(&con);//添加联系人
 			break;
 		case DELET:
-			Delet_con(&con);
+			Delet_con(&con);//删除联系人
 			break;
 		case MODIFY:
-			Modify_con(&con);
+			Modify_con(&con);//修改联系人
 			break;
 		case SORT:
+			SortByName_con(&con);//排序
 			break;
 		case SEARCH:
+			Search_con(&con);//查找联系人
 			break;
 		case SHOW:
-			Show_con(&con);
+			Show_con(&con);//显示联系人
 			break;
 		default:
 			printf("选择错误，请重新选择！\n");
