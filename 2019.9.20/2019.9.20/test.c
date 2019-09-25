@@ -22,17 +22,22 @@ int main()
 		switch(input)
 		{
 		case EXIT:
+			Destroy_con(&con);
 			printf("退出通讯录，谢谢使用\n");
 			break;
 		case ADD:
+			Add_con(&con);
 			break;
 		case DELETE:
+			Delete_con(&con);
 			break;
 		case SEARCH:
 			break;
 		case DISPLAY:
+			Display_con(&con);
 			break;
 		case SORT:
+			SortByName_con(&con);
 			break;
 		case MODIFY:
 			break;
